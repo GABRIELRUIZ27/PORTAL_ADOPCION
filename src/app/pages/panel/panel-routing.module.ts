@@ -15,11 +15,6 @@ const routes: Routes = [
           .then(i => i.InicioModule)
       },
       {
-        path: 'usuarios',
-        loadChildren: () => import('./usuarios/usuarios.module')
-          .then(i => i.UsuariosModule)
-      },
-      {
         path: 'discapacidades',
         loadChildren: () => import('./discapacidades/discapacidades.module')
           .then(i => i.DiscapacidadesModule)
