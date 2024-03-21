@@ -17,3 +17,13 @@
 .fs-5 {
   font-size: 3rem;
 }
+
+#carousel-controls {
+  max-height: 400px; /* ajusta la altura máxima según lo necesites */
+  overflow: hidden; /* oculta el contenido que excede la altura máxima */
+}
+
+.carousel-inner img {
+  height: 100%;
+  object-fit: contain;
+}
