@@ -27,6 +27,32 @@
 
 <hr />
 
+<div class="page page-center">
+  <div class="container-lg py-4">
+    <div class="card card-md">
+      <div class="card-stamp">
+        <div class="card-stamp-icon bg-yellow">
+          <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-baidu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 9.5m-1 0a1 1.5 0 1 0 2 0a1 1.5 0 1 0 -2 0" />
+            <path d="M14.463 11.596c1.282 1.774 3.476 3.416 3.476 3.416s1.921 1.574 .593 3.636c-1.328 2.063 -4.892 1.152 -4.892 1.152s-1.416 -.44 -3.06 -.088c-1.644 .356 -3.06 .22 -3.06 .22s-2.055 -.22 -2.47 -2.304c-.416 -2.084 1.918 -3.638 2.102 -3.858c.182 -.222 1.409 -.966 2.284 -2.394c.875 -1.428 3.337 -2.287 5.027 .221z" />
+            <path d="M9 4.5m-1 0a1 1.5 0 1 0 2 0a1 1.5 0 1 0 -2 0" />
+            <path d="M15 4.5m-1 0a1 1.5 0 1 0 2 0a1 1.5 0 1 0 -2 0" />
+            <path d="M19 9.5m-1 0a1 1.5 0 1 0 2 0a1 1.5 0 1 0 -2 0" />
+          </svg>
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <h2 class="h2 text-center mb-4">Refugio de Perritos</h2>
+        <p class="lead mb-4">Bienvenido al Refugio de Perritos, donde los latidos de nuestros amigos peludos se convierten en historias de amor y adopción. <br> ¡Déjate llevar por la magia de los ladridos y las colitas moviéndose! <br> Ven y únete a nuestra familia peluda.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
 <div class="row justify-content-center mt-3">
   <div class="col-lg-6">
       <a href="/panel/perritos" class="btn btn-primary btn-lg btn-block d-flex align-items-center justify-content-center">
@@ -39,7 +65,27 @@
       </a>
   </div>
 </div>
+
 <br>
+<hr>
+
+<div class="card col-md-12">
+  <div class="card-header" style="text-align: center;">
+    <h2>Ayúdanos a llegar a nuestra meta de adopciones</h2>
+    <span class="float-right"><i class="fas fa-home"></i></span>
+  </div>
+  <div class="card-body">
+    <p>Total de Adopciones: {{ totalAdopciones }}</p>
+    <div class="progress">
+      <div class="progress-bar bg-success custom-progress-bar" role="progressbar" [style.width.%]="porcentaje" [attr.aria-valuenow]="porcentaje" aria-valuemin="0" aria-valuemax="100">
+        {{ porcentaje }}%
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<hr>
 <div class="col-lg-12">
   <div class="card">
     <div class="card-body">
@@ -52,13 +98,46 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
           <div id="container-perritos-por-edad" style="height: 400px"></div>
+        </div>
+        <div class="col-lg-6">
+          <div id="container-perritos-por-discapacidad" style="height: 400px"></div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<br>
+<hr>
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Visítanos</h5>
+            <p class="card-text">Haz feliz a un perro adoptando hoy. ¡Ven y conoce a nuestros amigos peludos en nuestro refugio!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card h-100">
+          <div class="card-body">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1282.1729442438427!2d-98.23755712161642!3d19.317052454216086!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1711258513751!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 

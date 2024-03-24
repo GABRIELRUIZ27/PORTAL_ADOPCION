@@ -24,4 +24,11 @@ export class DashboardService {
     return this.http.get<Estadistica[]>(`${this.route}/total-perritos-por-tamaño`);
   }
 
+  getTotalPerritosDiscapacidad() {
+    return this.http.get<Estadistica[]>(`${this.route}/total-perritos-por-discapacidad`);
+  }
+
+  getTotalAdopciones() {
+    return this.http.get<number>(`${this.route}/total-adopciones`);
+  }
 }
