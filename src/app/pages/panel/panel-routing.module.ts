@@ -15,11 +15,6 @@ const routes: Routes = [
           .then(i => i.InicioModule)
       },
       {
-        path: 'discapacidades',
-        loadChildren: () => import('./discapacidades/discapacidades.module')
-          .then(i => i.DiscapacidadesModule)
-      },
-      {
         path: 'perritos',
         loadChildren: () => import('./perritos/perritos.module')
           .then(i => i.PerritosModule)

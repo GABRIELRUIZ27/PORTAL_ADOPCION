@@ -1,5 +1,17 @@
 <div class="container">
   <div class="row">
+
+    <!-- Tarjeta con el número total de perritos -->
+    <div class="col-12 mb-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">Total de perritos</h5>
+          <h1>{{ perritos.length }}</h1>
+          <p> esperando encontrar una nueva familia</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Filtros -->
     <div class="col-12 mb-4">
       <div class="card">
@@ -89,54 +101,59 @@
 
     <div class="container">
       <div class="row">
-        <!-- Tarjeta con el número total de perritos -->
-        <div class="col-12 mb-4">
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title">Total de perritos</h5>
-              <h1>{{ perritos.length }}</h1>
-              <p> esperando encontrar una nueva familia</p>
+        <ng-container *ngIf="perritosFiltrados.length !== 0">
+          <!-- Lista de perritos en cards -->
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <!-- Iterar sobre la lista de perritos filtrados -->
+                  <ng-container *ngFor="let perrito of perritosFiltrados">
+                    <div class="col-lg-4 mb-4">
+                      <div class="card h-100 text-center">
+                        <div style="height: 200px; overflow: hidden;">
+                          <img class="card-img-top" [src]="perrito.imagen" alt="Foto de {{ perrito.nombre }}" style="object-fit: cover; height: 100%;">
+                        </div>
+                        <div class="card-body">
+                          <h4 class="card-title">{{ perrito.nombre }}</h4>
+                          <p class="card-text">{{ perrito.edad.nombre }}</p>
+                          <p class="card-text">
+                            <ng-container *ngIf="perrito.genero.nombre === 'Hembra'">
+                              <i class="ti ti-gender-female"></i> <span style="color: rgb(254, 118, 204); font-weight: bold;">{{ perrito.genero.nombre }}</span><br>
+                            </ng-container>
+                            <ng-container *ngIf="perrito.genero.nombre === 'Macho'">
+                              <i class="ti ti-gender-male"></i> <span style="color: blue; font-weight: bold;">{{ perrito.genero.nombre }}</span><br>
+                            </ng-container>
+                            <span><i class="ti ti-disabled"></i> <span style="font-weight: bold;">Discapacidad:</span>
+                              <ng-container *ngIf="perrito.discapacidad; else noDiscapacidad">
+                                {{ perrito.discapacidad.nombre }}
+                              </ng-container>
+                              <ng-template #noDiscapacidad>
+                                Sin discapacidad
+                              </ng-template>
+                            </span>
+                          </p>
+                          <button class="btn btn-success" (click)="openWhatsApp(perrito.nombre)">
+                            <i class="ti ti-brand-whatsapp"></i> Solicitar información
+                          </button>                       
+                         </div>
+                      </div>
+                    </div>                             
+                  </ng-container>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-    <!-- Lista de perritos en cards -->
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <!-- Iterar sobre la lista de perritos filtrados -->
-            <ng-container *ngFor="let perrito of perritosFiltrados">
-              <div class="col-lg-4 mb-4">
-                <div class="card h-100 text-center">
-                  <div style="height: 200px; overflow: hidden;">
-                    <img class="card-img-top" [src]="perrito.imagen" alt="Foto de {{ perrito.nombre }}" style="object-fit: cover; height: 100%;">
-                  </div>                  <div class="card-body">
-                    <h4 class="card-title">{{ perrito.nombre }}</h4>
-                    <p class="card-text">{{ perrito.edad.nombre }}</p>
-                    <p class="card-text">
-                      <ng-container *ngIf="perrito.genero.nombre === 'Hembra'">
-                        <i class="ti ti-gender-female"></i> <span style="color: rgb(254, 118, 204); font-weight: bold;">{{ perrito.genero.nombre }}</span><br>
-                      </ng-container>
-                      <ng-container *ngIf="perrito.genero.nombre === 'Macho'">
-                        <i class="ti ti-gender-male"></i> <span style="color: blue; font-weight: bold;">{{ perrito.genero.nombre }}</span><br>
-                      </ng-container>
-                      <span><i class="ti ti-disabled"></i> <span style="font-weight: bold;">Discapacidad:</span>
-                        <ng-container *ngIf="perrito.discapacidad; else noDiscapacidad">
-                          {{ perrito.discapacidad.nombre }}
-                        </ng-container>
-                        <ng-template #noDiscapacidad>
-                          Sin discapacidad
-                        </ng-template>
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>                              
-            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="perritosFiltrados.length === 0">
+          <div class="col-12">
+            <div class="alert alert-warning text-center" role="alert">
+              <i class="ti-alert"></i> Ups, parece que no hay perritos que coincidan con tu búsqueda.
+            </div>
           </div>
-        </div>
+        </ng-container>
       </div>
     </div>
-  </div>
+    
+  </div>    
 </div>

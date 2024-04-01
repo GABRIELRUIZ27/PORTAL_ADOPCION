@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "simpatizantes2-e9e2a"
-  }
+    "default": "adopciones-795b1",
+    "adopciones": "adopciones-795b1"
+  },
+  "targets": {},
+  "etags": {}
 }

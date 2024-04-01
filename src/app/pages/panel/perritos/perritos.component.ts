@@ -4,6 +4,7 @@ import { PaginationInstance } from 'ngx-pagination';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MensajeService } from 'src/app/core/services/mensaje.service';
 import { LoadingStates } from 'src/app/global/global';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 import { Perritos } from 'src/app/models/perritos';
 import * as XLSX from 'xlsx';
@@ -60,6 +61,7 @@ export class PerritosComponent {
     private mensajeService: MensajeService,
     private formBuilder: FormBuilder,
     private discapacidadService: DiscapacidadService,
+    private sanitizer: DomSanitizer
   ) {
     this.perritosService.refreshListPerritos.subscribe(() => this.getPerritos());
     this.getPerritos();
@@ -69,6 +71,17 @@ export class PerritosComponent {
     this.getEdad();
   }
 
+  constructWhatsAppUrl(numero: string, mensaje: string) {
+    return `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
+  }
+  
+  openWhatsApp(perritoNombre: string) {
+    const numero = '2461955707'; // Tu número de WhatsApp
+    const mensaje = `Hola, me interesa adoptar al perrito ${perritoNombre}`;
+    const url = this.constructWhatsAppUrl(numero, mensaje);
+    window.open(url, '_blank');
+  }
+  
   getGenero() {
     this.generoService.getAll().subscribe({
       next: (dataFromAPI) => {
